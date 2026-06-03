@@ -16,17 +16,17 @@ return new class extends Migration
 
             $table->string('code')->default('');
             $table->string('name')->default('');
-            $table->string('email')->default('');
+            $table->string('email')->unique()->default('');
 
-            $table->string('nim');
+            $table->string('nim')->unique();
             $table->string('password');
 
             $table->string('place_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
 
-            $table->enum('sex', ['Laki - Laki', 'Perempuan'])->nullable('Laki - Laki');
+            $table->enum('sex', ['Laki - Laki', 'Perempuan'])->default('Laki - Laki');
             $table->integer('blood')->nullable();
-            $table->enum('religion', ['islam', 'kristen'])->nullable('islam');
+            $table->enum('religion', ['islam', 'kristen'])->date('islam');
 
             $table->string('address')->nullable();
             $table->string('village')->nullable();
