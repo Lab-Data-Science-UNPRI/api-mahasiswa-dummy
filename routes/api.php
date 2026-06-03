@@ -5,6 +5,8 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KrsController;
 use App\Http\Controllers\API\NilaiController;
 use App\Http\Controllers\API\ProfileController;
+use App\Http\Controllers\API\MahasiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
