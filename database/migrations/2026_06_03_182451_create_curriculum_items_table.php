@@ -13,6 +13,27 @@ return new class extends Migration
     {
         Schema::create('curriculum_items', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('curriculum_id')->nullable();
+            $table->integer('number_id')->nullable();
+
+            $table->foreignId('semester_id')->nullable()
+                ->constrained('semesters')
+                ->nullOnDelete();
+
+            $table->string('code')->nullable();
+            $table->string('title')->nullable();
+            $table->integer('sks')->default(0);
+
+            $table->unsignedBigInteger('subject_id')->nullable();
+
+            $table->integer('closed_id')->default(0);
+            $table->float('total_point')->default(0.0);
+            $table->integer('evaluation_status_id')->default(0);
+            $table->boolean('can_be_evaluate')->default(true);
+
+            $table->unsignedBigInteger('spada_course_id')->nullable();
+
             $table->timestamps();
         });
     }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('semesters', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // Semester 1
+            $table->integer('number')->nullable();
             $table->timestamps();
         });
     }

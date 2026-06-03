@@ -13,6 +13,39 @@ return new class extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
+
+            $table->string('code')->default('');
+            $table->string('name')->default('');
+            $table->string('short_name')->nullable();
+
+            $table->string('place_of_birth')->nullable();
+            $table->date('date_of_birth')->nullable();
+
+            $table->string('address')->nullable();
+            $table->string('handphone')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+
+            $table->string('front_title')->nullable();
+            $table->string('rear_title')->nullable();
+
+            $table->string('first_degree_title')->nullable();
+            $table->string('first_degree_major')->nullable();
+            $table->string('first_degree_university')->nullable();
+
+            $table->string('second_degree_title')->nullable();
+            $table->string('second_degree_major')->nullable();
+            $table->string('second_degree_university')->nullable();
+
+            $table->integer('religion_id')->default(1);
+            $table->integer('sex_id')->default(0);
+            $table->integer('status_id')->default(1);
+            $table->integer('visible_id')->default(1);
+
+            $table->foreignId('program_id')->nullable()
+                ->constrained('programs')
+                ->nullOnDelete();
+
             $table->timestamps();
         });
     }
