@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name')->default('');
             $table->string('email')->default('');
 
+            $table->string('nim');
+            $table->string('password');
+
             $table->string('place_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
 
