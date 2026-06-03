@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\KrsController;
-use App\Http\Controllers\API\NilaiController;
-use App\Http\Controllers\API\ProfileController;
-use App\Http\Controllers\API\MahasiswaController;
+
 
 
 /*
@@ -14,15 +11,19 @@ use App\Http\Controllers\API\MahasiswaController;
 |--------------------------------------------------------------------------
 */
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/student/login', [AuthController::class, 'loginStudent']);
+Route::post('/lecturer/login', [AuthController::class, 'loginLecturer']);
+
+
+
 
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::get('/profile', [ProfileController::class, 'index']);
+    // Route::get('/profile', [ProfileController::class, 'index']);
 
-    Route::get('/krs', [KrsController::class, 'index']);
+    // Route::get('/krs', [KrsController::class, 'index']);
 
-    Route::get('/nilai', [NilaiController::class, 'index']);
+    // Route::get('/nilai', [NilaiController::class, 'index']);
 });
