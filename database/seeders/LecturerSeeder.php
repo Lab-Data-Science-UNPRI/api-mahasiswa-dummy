@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class LecturerSeeder extends Seeder
 {
@@ -19,6 +20,10 @@ class LecturerSeeder extends Seeder
                 'id' => 1,
                 'code' => 'DSN001',
                 'name' => 'Dr. Ahmad Fauzi',
+
+                'nidn' => '10102122',
+                'password' => Hash::make('password123'),
+
                 'short_name' => 'AFZ',
                 'place_of_birth' => 'Medan',
                 'date_of_birth' => '1980-05-12',

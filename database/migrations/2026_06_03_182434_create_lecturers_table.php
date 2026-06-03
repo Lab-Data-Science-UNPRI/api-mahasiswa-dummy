@@ -24,7 +24,10 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('handphone')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->nullable()->unique();
+
+            $table->string('nidn')->unique();
+            $table->string('password');
 
             $table->string('front_title')->nullable();
             $table->string('rear_title')->nullable();
