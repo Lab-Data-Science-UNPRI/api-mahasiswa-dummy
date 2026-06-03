@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NilaiResource;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
@@ -15,6 +16,10 @@ class NilaiController extends Controller
             ->with('mataKuliah')
             ->get();
 
-        return response()->json($nilai);
+        return response()->json([
+                'status'        => 200,
+                'message'       => 'Data Nilai Berhasil Ambil',
+                'data'          => NilaiResource::collection($nilai),
+            ], 200);
     }
 }
