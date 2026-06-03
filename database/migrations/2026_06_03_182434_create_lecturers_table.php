@@ -37,11 +37,10 @@ return new class extends Migration
             $table->string('second_degree_major')->nullable();
             $table->string('second_degree_university')->nullable();
 
-            $table->integer('religion_id')->default(1);
-            $table->integer('sex_id')->default(0);
-            $table->integer('status_id')->default(1);
+            $table->enum('religion', ['islam', 'kristen'])->default('islam');
+            $table->enum('sex', ['Laki - Laki', 'Perempuan'])->default('Laki - Laki');
+            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->integer('visible_id')->default(1);
-
             $table->foreignId('program_id')->nullable()
                 ->constrained('programs')
                 ->nullOnDelete();

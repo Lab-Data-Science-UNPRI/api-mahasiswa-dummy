@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('place_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
 
-            $table->integer('sex_id')->nullable();
-            $table->integer('blood_id')->nullable();
-            $table->integer('religion_id')->nullable();
+            $table->enum('sex', ['Laki - Laki', 'Perempuan'])->nullable('Laki - Laki');
+            $table->integer('blood')->nullable();
+            $table->enum('religion', ['islam', 'kristen'])->nullable('islam');
 
             $table->string('address')->nullable();
             $table->string('village')->nullable();
@@ -75,7 +75,7 @@ return new class extends Migration
                 ->constrained('semesters')
                 ->nullOnDelete();
 
-            $table->integer('status_id')->default(0);
+            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->integer('visible_id')->default(1);
             $table->integer('finance_id')->default(1);
 
