@@ -5,22 +5,18 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class KRSSeeder extends Seeder
+class BloodTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('study_cards')->insert([
-    [
-        'student_id' => 1,
-        'lecturer_id' => 1,
-        'program_id' => 1,
-        'semester_id' => 4,
-        'year_id' => 1,
-        'study_card_code' => 'KRS-001'
-    ]
+        DB::table('blood_types')->insert([
+    ['code' => 'A', 'name' => 'A'],
+    ['code' => 'B', 'name' => 'B'],
+    ['code' => 'AB', 'name' => 'AB'],
+    ['code' => 'O', 'name' => 'O'],
 ]);
     }
 }

@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dosens', function (Blueprint $table) {
-            $table->id();
-            $table->string('nidn')->unique();
-            $table->string('nama');
-            $table->string('email')->nullable();
-            $table->timestamps();
-        });
+        Schema::create('academic_stages', function (Blueprint $table) {
+    $table->id();
+
+    $table->string('code', 20)->unique();
+    $table->string('name', 100);
+
+    $table->timestamps();
+});
     }
 
     /**
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dosens');
+        Schema::dropIfExists('academic_stages');
     }
 };

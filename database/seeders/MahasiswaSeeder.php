@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Mahasiswa;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class MahasiswaSeeder extends Seeder
 {
     /**
@@ -13,38 +12,21 @@ class MahasiswaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        Mahasiswa::create([
-            'nim' => '231001001',
-            'nama' => 'Budi Santoso',
-            'email' => 'budi@gmail.com',
-            'password' => bcrypt('123456'),
-            'prodi' => 'Informatika',
-            'fakultas' => 'Teknik',
-            'angkatan' => 2023,
-            'semester' => 4
-        ]);
+        DB::table('students')->insert([
+    [
+        'program_id' => 1,
+        'advisor_lecturer_id' => 1,
 
-        Mahasiswa::create([
-            'nim' => '231001002',
-            'nama' => 'Andi Wijaya',
-            'email' => 'andi@gmail.com',
-            'password' => bcrypt('123456'),
-            'prodi' => 'Sistem Informasi',
-            'fakultas' => 'Teknik',
-            'angkatan' => 2023,
-            'semester' => 4
-        ]);
+        'student_number' => '221401001',
 
-        Mahasiswa::create([
-            'nim' => '231001003',
-            'nama' => 'Citra Lestari',
-            'email' => 'citra@gmail.com',
-            'password' => bcrypt('123456'),
-            'prodi' => 'Teknik Komputer',
-            'fakultas' => 'Teknik',
-            'angkatan' => 2023,
-            'semester' => 4
-        ]);
+        'name' => 'Budi Santoso',
+
+        'email' => 'budi@student.ac.id',
+
+        'current_semester_id' => 4,
+
+        'status_id' => 1
+    ]
+]);
     }
 }

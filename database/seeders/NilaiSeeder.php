@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Nilai;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class NilaiSeeder extends Seeder
 {
     /**
@@ -13,50 +12,22 @@ class NilaiSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        // Mahasiswa 1
-        Nilai::create([
-            'mahasiswa_id' => 1,
-            'mata_kuliah_id' => 1,
-            'nilai_angka' => 90,
-            'nilai_huruf' => 'A'
-        ]);
+        DB::table('student_grades')->insert([
+    [
+        'student_id' => 1,
+        'subject_id' => 1,
+        'study_card_id' => 1,
 
-        Nilai::create([
-            'mahasiswa_id' => 1,
-            'mata_kuliah_id' => 2,
-            'nilai_angka' => 85,
-            'nilai_huruf' => 'A'
-        ]);
+        'numeric_grade' => 85,
 
-        // Mahasiswa 2
-        Nilai::create([
-            'mahasiswa_id' => 2,
-            'mata_kuliah_id' => 2,
-            'nilai_angka' => 80,
-            'nilai_huruf' => 'B'
-        ]);
+        'letter_grade' => 'A',
 
-        Nilai::create([
-            'mahasiswa_id' => 2,
-            'mata_kuliah_id' => 3,
-            'nilai_angka' => 88,
-            'nilai_huruf' => 'A'
-        ]);
+        'grade_point' => 4,
 
-        // Mahasiswa 3
-        Nilai::create([
-            'mahasiswa_id' => 3,
-            'mata_kuliah_id' => 1,
-            'nilai_angka' => 75,
-            'nilai_huruf' => 'B'
-        ]);
+        'sks' => 3,
 
-        Nilai::create([
-            'mahasiswa_id' => 3,
-            'mata_kuliah_id' => 3,
-            'nilai_angka' => 95,
-            'nilai_huruf' => 'A'
-        ]);
+        'is_passed' => true
+    ]
+]);
     }
 }

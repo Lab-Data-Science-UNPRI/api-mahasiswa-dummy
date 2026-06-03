@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\MataKuliah;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class MataKuliahSeeder extends Seeder
 {
     /**
@@ -13,29 +12,28 @@ class MataKuliahSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        MataKuliah::create([
-            'kode_mk' => 'IF401',
-            'nama_mk' => 'Struktur Data',
-            'sks' => 3,
-            'semester' => 4,
-            'dosen_id' => 1
-        ]);
-
-        MataKuliah::create([
-            'kode_mk' => 'IF402',
-            'nama_mk' => 'Basis Data',
-            'sks' => 3,
-            'semester' => 4,
-            'dosen_id' => 2
-        ]);
-
-        MataKuliah::create([
-            'kode_mk' => 'IF403',
-            'nama_mk' => 'Pemrograman Web',
-            'sks' => 3,
-            'semester' => 4,
-            'dosen_id' => 3
-        ]);
+        DB::table('subjects')->insert([
+    [
+        'code' => 'IF101',
+        'name' => 'Algoritma dan Pemrograman',
+        'sks' => 3,
+        'theory_sks' => 2,
+        'practice_sks' => 1
+    ],
+    [
+        'code' => 'IF102',
+        'name' => 'Basis Data',
+        'sks' => 3,
+        'theory_sks' => 2,
+        'practice_sks' => 1
+    ],
+    [
+        'code' => 'IF103',
+        'name' => 'Pemrograman Web',
+        'sks' => 3,
+        'theory_sks' => 2,
+        'practice_sks' => 1
+    ]
+]);
     }
 }
