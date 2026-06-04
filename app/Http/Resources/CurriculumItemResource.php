@@ -7,13 +7,16 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CurriculumItemResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'code' => $this->code,
+            'title' => $this->title,
+            'sks' => $this->sks,
+            'semester' => new SemesterResource($this->whenLoaded('semester')),
+            'total_point' => $this->total_point,
+            'can_be_evaluate' => $this->can_be_evaluate,
+        ];
     }
 }
