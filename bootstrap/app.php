@@ -8,6 +8,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -61,6 +62,18 @@ return Application::configure(basePath: dirname(__DIR__))
         });
 
         $exceptions->render(function (
+            AccessDeniedHttpException $e,
+            $request
+        ) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Anda tidak memiliki akses ke resource ini.',
+                ], 403);
+            }
+        });
+
+        $exceptions->render(function (
             MethodNotAllowedHttpException $e,
             $request
         ) {
@@ -72,5 +85,6 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
     })
+
 
     ->create();
